@@ -1,0 +1,18 @@
+import numpy as np
+import random as rand
+import matplotlib.pyplot as plt
+
+numberOfSims = 50000
+
+def simulate():
+    paperSet = np.arange(2024)+1
+    
+    while (len(paperSet)!=1):
+        index1, index2 = rand.sample(range(len(paperSet)), 2)
+        diff = np.abs(paperSet[index1] - paperSet[index2])
+        paperSet = np.delete(paperSet, [index1, index2])
+        paperSet = np.append(paperSet, diff)
+        
+    return paperSet[0]
+
+finalValues = [simulate() for x in range(numberOfSims)]
