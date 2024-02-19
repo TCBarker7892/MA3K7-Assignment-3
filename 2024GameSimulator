@@ -16,3 +16,9 @@ def simulate():
     return paperSet[0]
 
 finalValues = [simulate() for x in range(numberOfSims)]
+
+plt.hist(finalValues, bins=80)
+plt.xlabel("Final Value")
+plt.ylabel("Quantity")
+plt.title("Distribution of final values reached over 50000 simulated games")
+plt.show()
